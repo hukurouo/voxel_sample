@@ -32,7 +32,6 @@ scene.add(light);
 const animate = function () {
   requestAnimationFrame( animate );
   if (object_switch){
-    object_switch.rotation.x += 0.01;
     object_switch.rotation.y += 0.01;
   }
   renderer.render( scene, camera );
