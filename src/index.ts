@@ -9,7 +9,7 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 
-var object_switch = null;
+let object_switch
 const mtlLoader = new MTLLoader();
 mtlLoader.setPath('models/');
 mtlLoader.load('switch.mtl', (materials) => {
