@@ -5,7 +5,7 @@ module.exports = {
     contentBase: "dist",
     open: true
   },
-  entry: "./src/index.js",
+  entry: "./src/index.ts",
   // ファイルの出力設定
   output: {
     //  出力ファイルのディレクトリ名
@@ -16,22 +16,15 @@ module.exports = {
   module: {
     rules: [
       {
-        // 拡張子 .js の場合
-        test: /\.js$/,
-        use: [
-          {
-            // Babel を利用する
-            loader: "babel-loader",
-            // Babel のオプションを指定する
-            options: {
-              presets: [
-                // プリセットを指定することで、ES2020 を ES5 に変換
-                "@babel/preset-env"
-              ]
-            }
-          }
-        ]
+        // 拡張子 .ts の場合
+        test: /\.ts$/,
+        // TypeScript をコンパイルする
+        use: "ts-loader"
       }
     ]
+  },
+  // import 文で .ts ファイルを解決するため
+  resolve: {
+    extensions: [".ts", ".js"]
   },
 };
